@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary" >
 
     
-        <a class="navbar-brand" href="#">LibraryManagementSyste</a>
+        <a class="navbar-brand" href="#">LibraryManagementSystem</a>
        
         <div  class="fa fa-align-center" aria-hidden="true">
             
@@ -34,7 +34,7 @@
     
                         <div class="dropdown" >
                                
-                                <button class="btn btn-dark dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                             adminoperations
                                         </button>
@@ -42,18 +42,11 @@
     
                        
                             <li class="nav-item active" >
-                                    <a class="nav-link" href="admin-operation"(click)=add()>adduser <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="adduser">adduser <span class="sr-only">(current)</span></a>
                                 </li>
-                    
+                
                                 <li class="nav-item active" >
-                                    <a class="nav-link" href="admin-operation">updateowner<span class="sr-only">(current)</span></a>
-                                </li>
-                    
-                                <li class="nav-item active" >
-                                    <a class="nav-link" href="admin-operation">deleteowner <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item active" >
-                                        <a class="nav-link" href="admin-operation">showallstudent <span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="admin-operation">showalluser <span class="sr-only">(current)</span></a>
                                     </li>
     
                                 <li class="nav-item-active" >
@@ -68,31 +61,22 @@
     
                             <div class="dropdown" >
                                    
-                                    <button class="btn btn-dark dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                                owneroperations
+                                                LibrarianOperation
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="triggerId">
         
                            
                                 <li class="nav-item active" >
-                                        <a class="nav-link" href="addbus">addbus <span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="addbook">addbook <span class="sr-only">(current)</span></a>
                                     </li>
                         
-                                    <li class="nav-item active" >
-                                        <a class="nav-link" href="updatebus ">updatebus <span class="sr-only">(current)</span></a>
-                                    </li>
-                        
-                                    <li class="nav-item active" >
-                                        <a class="nav-link" href="deletebus ">deletebus  <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item active" >
-                                            <a class="nav-link" href="showallbus ">showallbus  <span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item active" >
-                                                <a class="nav-link" href="searchbus ">searchbus  <span class="sr-only">(current)</span></a>
-                                            </li>
         
+                                    <li class="nav-item active" >
+                                            <a class="nav-link" href="librarian-operation ">showallbooks <span class="sr-only">(current)</span></a>
+                                        </li>
+                                       
                                     <li class="nav-item-active" >
                                             <a class="nav-link" routerLink="logout" (click)='logout()'>logout</a>
                                         </li>
@@ -106,7 +90,7 @@
     
                                 <div class="dropdown" >
                                        
-                                        <button class="btn btn-dark dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                                     cusstomeroperations
                                                 </button>

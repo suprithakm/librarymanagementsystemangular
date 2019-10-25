@@ -1,13 +1,11 @@
 
-
-
 <div class="col-md-4 offset-md-4 card card-body mt-5">
         <div class="spinner-border text-success m-auto" role="status" *ngIf = "isLoading">
                 <span class="sr-only">Loading...</span>
               </div>
               
-        <form #addForm = 'ngForm' (ngSubmit)="add(addForm)" *ngIf=isadd >
-            <input type="number" name="userId" #userId = 'ngModel' ngModel
+        <form #addForm = 'ngForm' (ngSubmit)="add(addForm)"  >
+            <input type="text" name="userId" #userId = 'ngModel' ngModel
             class="form-control mb-3" placeholder="Enter user Id...">
     
             <input type="text" name="userName" #userName = 'ngModel' ngModel

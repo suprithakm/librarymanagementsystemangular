@@ -1,1 +1,85 @@
-<p>librarian-operation works!</p>
+<!-- <div class="col-md-4 offset-md-4">
+  <input type="search" class="form-control" placeholder="Enter owner id..."
+  [(ngModel)]="selectOwner">
+</div> -->
+
+
+<div class="container mt-4">
+    <table class="table table-border table-hover table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>BookId</th>
+                <th>BookName</th>
+                <th>author1</th>
+                <th>author2</th>
+                <th>publisher</th>
+                <th>yearOfPublication</th>
+                <th>update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody >
+         
+            <tr *ngFor="let books of allbooks">
+                <td>{{books.bookId}}</td>
+                <td>{{books.bookName}}</td>
+                <td>{{books.author1}}</td>
+                <td>{{books.author2}}</td>
+                <td>{{books.publisher}}</td>
+                <td>{{books.yearOfPublication}}</td>
+                <td>
+                    <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            (click)='selectBook(books)'>
+            Update
+            </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="callGetBookData()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              <form #updateForm='ngForm' (ngSubmit)="update(updateForm)" >
+                <input type="text" name='bookId' #bookId='ngModel'[(ngModel)]='selectedBook.bookId'
+                class="form-control mb-3">
+                <input type="text" name='bookName' #bookName='ngModel'[(ngModel)]='selectedBook.bookName'
+                class="form-control mb-3" placeholder="enter book name..">
+                <input type="text" name='author1' #author1='ngModel'[(ngModel)]='selectedBook.author1'
+                class="form-control mb-3" placeholder="enter author1..">
+                <input type="text" name='author2' #author2='ngModel'[(ngModel)]='selectedBook.author2'
+                class="form-control mb-3" placeholder="enter author2..">
+                <input type="text" name='publisher' #publisher='ngModel'[(ngModel)]='selectedBook.publisher'
+                class="form-control mb-3" placeholder="enter publisher..">
+                <input type="text" name='yearOfPublication' #yearOfPublication='ngModel'[(ngModel)]='selectedBook.yearOfPublication'
+                class="form-control mb-3" placeholder="enter yearOfPublication..">
+               
+                <div class="btn-group float-right">
+                    <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    <button type="submit" class="btn btn-outline-dark">submit</button>
+                </div>
+            </form>
+
+
+         </div>
+          </div>
+        </div>
+     
+      </div>
+                </td>
+
+                <td>
+                        <button class="btn btn-outline-danger" (click)="delete(books)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+      
+    </table>
+
+</div>

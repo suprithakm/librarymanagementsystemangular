@@ -1,0 +1,36 @@
+
+<div class="col-md-4 offset-md-4 card card-body mt-5">
+    <div class="spinner-border text-success m-auto" role="status" *ngIf = "isLoading">
+            <span class="sr-only">Loading...</span>
+          </div>
+          
+    <form #addForm = 'ngForm' (ngSubmit)="add(addForm)"  >
+
+        
+        <input type="text" name="bookId" #bookId = 'ngModel' ngModel
+            class="form-control mb-3" placeholder="Enter the book Id...">
+
+        <input type="text" name="bookName" #bookName = 'ngModel' ngModel
+        class="form-control mb-3" placeholder="Enter the book Name...">
+
+        <input type="text" name="author1" #author1 = 'ngModel' ngModel
+        class="form-control mb-3" placeholder="Enter the author1...">
+
+        <input type="text" name="author2" #author2 = 'ngModel' ngModel
+        class="form-control mb-3" placeholder="Enter the author2...">
+
+        <input type="text" name="publisher" #publisher = 'ngModel' ngModel
+        class="form-control mb-3" placeholder="Enter the publisher...">
+
+        <input type="text" name="yearOfPublication" #yearOfPublication = 'ngModel' ngModel
+        class="form-control mb-3" placeholder="Enter the yearOfPublication...">
+        
+        <div class="btn-group float-right">
+            <button type="reset" class="btn btn-outline-dark">Reset</button>
+            <button type="submit" class="btn btn-outline-primary">Add </button>
+
+        </div>
+    </form>
+</div>
+
+
