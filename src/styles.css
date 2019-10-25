@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url("https://image.shutterstock.com/image-photo/books-new-modern-library-stuttgart-260nw-674867536.jpg");
+    background-size : cover;
+}
