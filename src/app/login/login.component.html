@@ -5,7 +5,7 @@
       </div>
     <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'   *ngIf = "!isLoading">
         <div class="form-group">
-        <input type="number" name="userId" placeholder="Enter id..."
+        <input type="text" name="userId" placeholder="Enter id..."
         #userId='ngModel' ngModel  class="form-control mb-3" required >
         <div *ngIf="userId.touched &&  userId.invalid">
             <p class=" alert alert-danger" *ngIf="userId.errors.required" >userId is required</p>

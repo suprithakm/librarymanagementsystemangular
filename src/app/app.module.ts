@@ -15,7 +15,10 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LibrarianHomeComponent } from './librarian-home/librarian-home.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { AdduserComponent } from './adduser/adduser.component';
-import { AddbookComponent } from './addbook/addbook.component'
+import { AddbookComponent } from './addbook/addbook.component';
+import { FilterPipe } from './filter.pipe';
+import { CutPipe } from './custom.pipe';
+import { LibrarianComponent } from './librarian/librarian.component'
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { AddbookComponent } from './addbook/addbook.component'
     LibrarianHomeComponent,
     StudentHomeComponent,
     AdduserComponent,
-    AddbookComponent
+    AddbookComponent,
+    FilterPipe,
+    CutPipe,
+    LibrarianComponent
   ],
   imports: [
     BrowserModule,

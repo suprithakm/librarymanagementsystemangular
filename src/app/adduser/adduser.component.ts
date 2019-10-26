@@ -12,6 +12,7 @@ export class AdduserComponent implements OnInit {
   constructor(private service:CommonService) { }
   
   add(addForm:NgForm){
+   console.log(localStorage.getItem('token'));
     this.service.addUser(addForm.value).subscribe(resData=>{
       if(resData){
         addForm.reset();

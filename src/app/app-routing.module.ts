@@ -11,6 +11,7 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { HeaderComponent } from './header/header.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddbookComponent } from './addbook/addbook.component';
+import { LibrarianComponent } from './librarian/librarian.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
 {path:'student-home',component:StudentHomeComponent},
 {path:'adduser',component:AdduserComponent},
 {path:'addbook',component:AddbookComponent},
+{path:'librarian',component:LibrarianComponent}
 
 ];
 

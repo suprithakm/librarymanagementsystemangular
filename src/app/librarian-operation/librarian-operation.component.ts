@@ -9,66 +9,75 @@ import { NgForm } from '@angular/forms';
 })
 export class LibrarianOperationComponent implements OnInit {
 
-  
-  selectedBook={
-    bookId:null,
-    bookName:null,
-    author1:null,
-    author2:null,
-   yearOfPublication :null,
+
+  selectedBook = {
+    bookId: null,
+    bookName: null,
+    author1: null,
+    author2: null,
+    yearOfPublication: null,
   }
-allbooks=[];
+  allbooks = [];
+
+  allissued=[];
+
+  constructor(private service: CommonService) {
+    this.callGetBookData();
+    this.getIssuedBooks();
+  }
 
 
-  constructor(private service:CommonService ) 
-    {this.callGetBookData();
-    }
-   
-
-   selectBook(books) {
+  selectBook(books) {
     this.selectedBook = books;
   }
 
-   callGetBookData(){
-  this.service.getAllBook().subscribe(resData =>{
-    console.log(resData);
-   this.allbooks=resData;
-  
+  getIssuedBooks(){
+    this.service.getAllIssuedBooks().subscribe(resData=>{
+      console.log(resData);
+      this.allissued=resData;
+    })
+  }
+
+  callGetBookData() {
+    this.service.getAllBook().subscribe(resData => {
+      console.log(resData);
+      this.allbooks = resData;
+
     });
 
- }
+  }
 
- update(updateForm: NgForm){
-  this.service.updateBook(updateForm.value)
-  .subscribe(resData=>{
-    if(resData){
-    console.log(resData);
-    updateForm.reset();
-    alert("updated successfully");
-    this.callGetBookData();
-    }else{
-      alert('updation failed');
-    }
-  }, err=>{
-    console.log(err);
-  });
-    }
-  
-    delete(books) {
-      console.log(books);
-      this.service.deleteBook(books).subscribe(resData=> {
-        if(resData){
+  update(updateForm: NgForm) {
+    this.service.updateBook(updateForm.value)
+      .subscribe(resData => {
+        if (resData) {
+          console.log(resData);
+          updateForm.reset();
+          alert("updated successfully");
+          this.callGetBookData();
+        } else {
+          alert('updation failed');
+        }
+      }, err => {
+        console.log(err);
+      });
+  }
+
+  delete(books) {
+    console.log(books);
+    this.service.deleteBook(books).subscribe(resData => {
+      if (resData) {
         console.log(resData);
         alert('deleted successfully')
         this.callGetBookData();
-        }else{
-          console.log(resData)
-          alert('deletion failed')
-        }
-      }, err=> {
-        console.log(err);
-      });
-    }
+      } else {
+        console.log(resData)
+        alert('deletion failed')
+      }
+    }, err => {
+      console.log(err);
+    });
+  }
   ngOnInit() {
   }
 

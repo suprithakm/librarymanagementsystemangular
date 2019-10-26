@@ -5,5 +5,6 @@ export class Book {
     author2: string;
     publisher:String;
     yearOfPublication: string;
+    image:String
 
 }

@@ -28,18 +28,21 @@ export class LoginComponent implements OnInit {
           console.log(resData);
           this.isAdminLogin=true;
           loginForm.reset();
+          localStorage.setItem('token',resData.userId)
           this.router.navigateByUrl('/admin-home')
         }
        else if(resData.type==='librarian'){
           alert(' librarian login successfull');
           this.isLibrarianLogin=true;
           loginForm.reset();
+          localStorage.setItem('token',resData.userId)
           this.router.navigateByUrl('/librarian-home')
         }
        else if(resData.type==='student'){
           alert('login successfull');
           this.isStudentLogin=true;
           loginForm.reset();
+          localStorage.setItem('token',resData.userId)
           this.router.navigateByUrl('/student-home')
         }
       }else{
