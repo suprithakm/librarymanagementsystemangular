@@ -1,4 +1,4 @@
-<app-header [islibrarianlogin]='true'></app-header>
+
 <h1 align=center>welcome to librarian home page</h1>
 
 
@@ -22,11 +22,11 @@
                 <td>{{books.userId}}</td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button *ngIf='!request' type="button" class="btn btn-success" data-toggle="modal"
+                    <button *ngIf='registerid!=books.registrationId' type="button" class="btn btn-success" data-toggle="modal"
                         data-target="#exampleModal" (click)='acceptRequest(books.registrationId)'>
                         Accept
                     </button>
-                    <button *ngIf='request' type="button" class="btn btn-primary" disabled data-toggle="modal"
+                    <button *ngIf='registerid===books.registrationId' type="button" class="btn btn-primary" disabled data-toggle="modal"
                         data-target="#exampleModal" (click)='acceptRequest(books.registrationId)'>
                         Issued
                     </button>

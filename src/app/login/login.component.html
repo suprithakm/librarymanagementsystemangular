@@ -3,7 +3,7 @@
     <div class="spinner-border text-success m-auto" role="status" *ngIf = "isLoading">
         <span class="sr-only">Loading...</span>
       </div>
-    <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'   *ngIf = "!isLoading">
+    <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'  >
         <div class="form-group">
         <input type="text" name="userId" placeholder="Enter id..."
         #userId='ngModel' ngModel  class="form-control mb-3" required >

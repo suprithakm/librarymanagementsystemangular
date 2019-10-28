@@ -8,7 +8,7 @@ import { CommonService } from '../common.service';
 })
 export class LibrarianHomeComponent implements OnInit {
 allreq:[]
-request=false;
+registerid:String;
   constructor(private service: CommonService) {
     this.callGetBookRegData();
   }
@@ -24,10 +24,15 @@ request=false;
   }
 
   acceptRequest(regid){
+    console.log(regid)
     this.service.acceptRequest(regid).subscribe(resData=>{
       console.log(resData);
+      this.registerid=regid;
+   if(resData!=null){
       alert('book is issued')
-      this.request=true;
+   }else{
+     alert('book already issued')
+   }
 
     })
   }

@@ -12,10 +12,40 @@ import { BookTransaction } from './bookstransaction';
 export class CommonService {
   user =  new Subject<User>();
   book = new Subject<Book> ();
+  booktrans=new Subject<BookTransaction>();
+  isadminLogin:Boolean
+   islibrarianLogin:Boolean
+ isstudentLogin:Boolean
   api='http://localhost:8080/';
   constructor(private http:HttpClient) { 
   }
 
+  IsAdminLogin(){
+    if(this.isadminLogin){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+  
+  IsLibrarianLogin(){
+    if(this.islibrarianLogin){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+  IsStudentLogin(){
+    if(this.isstudentLogin){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
 login(login):any{
   return this.http.get<User>(`${this.api}login/${login.userId}/${login.password}`,login);
 }
@@ -59,5 +89,12 @@ acceptRequest(regid){
 }
 getAllIssuedBooks():any{
   return this.http.get<BookTransaction>(`${this.api}showAllIssuedBooks`);
+}
+getAllIssuedBook(student):any{
+  return this.http.get<BookTransaction>(`${this.api}showAllIssuedBook/${student}`);
+}
+
+returnBooks(date,regid):any{
+  return this.http.post<BookTransaction>(`${this.api}returnBook/${date}/${regid}`,date);
 }
 }

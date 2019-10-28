@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-librarian',
@@ -8,10 +9,22 @@ import { CommonService } from '../common.service';
 })
 export class LibrarianComponent implements OnInit {
   allissued=[];
+ allreq=[];
 
   constructor(private service: CommonService) {
     
     this.getIssuedBooks();
+    
+  }
+
+
+  callGetBookRegData() {
+    this.service.getAllReqBook().subscribe(resData => {
+      console.log(resData);
+      this.allreq = resData;
+
+    });
+
   }
 
   getIssuedBooks(){
@@ -20,6 +33,10 @@ export class LibrarianComponent implements OnInit {
       this.allissued=resData;
     })
   }
+
+ 
+
+
   ngOnInit() {
   }
 

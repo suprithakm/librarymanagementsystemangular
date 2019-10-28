@@ -5,58 +5,56 @@
 
     <div class="fa fa-align-center" aria-hidden="true">
 
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0"
-            *ngIf='!homeclicked && !islibrarianlogin && !isadminlogin && !isstudentlogin'>
+           
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" *ngIf='!isAdminLogin()&&!isLibrarianLogin() &&! isStudentLogin()'>
+
+                <li class="nav-item active">
+
+                        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        
+                    </li>
 
             <li class="nav-item active">
-
-                <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-
+                <a class="nav-link float-right" routerLink="login">Login <span class="sr-only">(current)</span></a>
             </li>
 
-        </ul>
-
-
-
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" *ngIf='homeclicked && !islogin'>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="login">Login <span class="sr-only">(current)</span></a>
-            </li>
 
         </ul>
-
-
 
     </div>
-    <ul *ngIf='isadminlogin' class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul *ngIf='isAdminLogin()' class="navbar-nav mr-auto mt-2 mt-lg-0">
 
   
-                    <a class="nav-link text-light " href="adduser">adduser <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-light " routerLink="admin-home">home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light " routerLink="adduser">adduser <span class="sr-only">(current)</span></a>
                
-                    <a class="nav-link text-light " href="admin-operation">showalluser <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light " routerLink="admin-operation">showalluser <span class="sr-only">(current)</span></a>
                 
     </ul>
 
-    <ul *ngIf='islibrarianlogin'class="navbar-nav mr-auto mt-2 mt-lg-0">
-
+    <ul *ngIf='isLibrarianLogin()'class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <a class="nav-link text-light " routerLink="librarian-home">home <span class="sr-only">(current)</span></a>
        
-                    <a class="nav-link text-light " href="addbook">addbook <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light " routerLink="addbook">addbook <span class="sr-only">(current)</span></a>
                
-                    <a class="nav-link text-light " href="librarian-operation ">showallbooks <span
+                    <a class="nav-link text-light " routerLink="librarian-operation">showallbooks <span
                             class="sr-only">(current)</span></a>
-                            <a class="nav-link text-light "  href="librarian">showallissuedbooks <span
+                            
+                            <a class="nav-link text-light "  routerLink="librarian">showallissuedbooks <span
                                 class="sr-only">(current)</span></a>
                
     </ul>
 
 
-    <ul *ngIf='isstudentlogin' class="navbar-nav mr-auto mt-2 mt-lg-0" >
+    <ul *ngIf='isStudentLogin()' class="navbar-nav mr-auto mt-2 mt-lg-0" >
+            <a class="nav-link text-light " routerLink="student-home">home <span class="sr-only">(current)</span></a>
 
-        <a class="nav-link text-light " href="student-operation">show books</a>
+        <a class="nav-link text-light " routerLink="student-operation">show books</a>
     </ul>
 
     
-    <a  class="nav-link text-light float-right" *ngIf='isstudentlogin||isadminlogin||islibrarianlogin 'routerLink="logout" (click)='logout()'>logout</a>
+    <a  class="nav-link text-light float-right" *ngIf='isStudentLogin()||isAdminLogin()||isLibrarianLogin()'routerLink="logout" (click)='logout()'>logout</a>
 </nav>
+
+<router-outlet></router-outlet>

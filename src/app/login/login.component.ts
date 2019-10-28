@@ -26,15 +26,18 @@ export class LoginComponent implements OnInit {
         if(resData.type==='admin'){
           alert(' admin login successfull');
           console.log(resData);
-          this.isAdminLogin=true;
           loginForm.reset();
-          localStorage.setItem('token',resData.userId)
+          localStorage.setItem('token',resData.userId);
+          this.service.isadminLogin=true;
+          console.log(this.service.isadminLogin)
+          this.service.user.next(resData);
           this.router.navigateByUrl('/admin-home')
         }
        else if(resData.type==='librarian'){
           alert(' librarian login successfull');
           this.isLibrarianLogin=true;
           loginForm.reset();
+          this.service.islibrarianLogin=true;
           localStorage.setItem('token',resData.userId)
           this.router.navigateByUrl('/librarian-home')
         }
@@ -42,6 +45,7 @@ export class LoginComponent implements OnInit {
           alert('login successfull');
           this.isStudentLogin=true;
           loginForm.reset();
+          this.service.isstudentLogin=true;
           localStorage.setItem('token',resData.userId)
           this.router.navigateByUrl('/student-home')
         }

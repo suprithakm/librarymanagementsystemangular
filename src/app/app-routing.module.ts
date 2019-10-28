@@ -15,8 +15,7 @@ import { LibrarianComponent } from './librarian/librarian.component';
 
 
 const routes: Routes = [
-{path:'',component:HeaderComponent},
-{path:'home',component:HomeComponent},
+{path:'',component:HomeComponent},
 {path:'login',component:LoginComponent},
 {path:'admin-operation',component:AdminOperationComponent},
 {path:'librarian-operation',component:LibrarianOperationComponent},

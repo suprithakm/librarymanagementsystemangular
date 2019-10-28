@@ -19,6 +19,7 @@ import { AddbookComponent } from './addbook/addbook.component';
 import { FilterPipe } from './filter.pipe';
 import { CutPipe } from './custom.pipe';
 import { LibrarianComponent } from './librarian/librarian.component'
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { LibrarianComponent } from './librarian/librarian.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
