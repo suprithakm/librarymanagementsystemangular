@@ -81,8 +81,8 @@ getAllReqBook():any{
 getrequest(userId,book){
   return this.http.post<BookRegistration>(`${this.api}requestBook/${userId}`,book)
 }
-cancelRequest(id,userId){
-  return this.http.delete<BookRegistration>(`${this.api}cancelRequestBook/${id}/${userId}`)
+cancelRequest(books){
+  return this.http.post<BookRegistration>(`${this.api}cancelRequestBook`,books)
 }
 acceptRequest(regid){
   return this.http.get<BookTransaction>(`${this.api}acceptRequest/${regid}`)
@@ -93,6 +93,7 @@ getAllIssuedBooks():any{
 getAllIssuedBook(student):any{
   return this.http.get<BookTransaction>(`${this.api}showAllIssuedBook/${student}`);
 }
+
 
 returnBooks(date,regid):any{
   return this.http.post<BookTransaction>(`${this.api}returnBook/${date}/${regid}`,date);

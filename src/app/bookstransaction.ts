@@ -4,4 +4,5 @@ export class BookTransaction {
     issueDate: Date;
     registrationId: string;
     returnDate: Date;
+    status:String
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-librarian-operation',
@@ -21,7 +22,7 @@ export class LibrarianOperationComponent implements OnInit {
 
   allissued=[];
 
-  constructor(private service: CommonService) {
+  constructor(private service: CommonService,private router:Router) {
     this.callGetBookData();
     this.getIssuedBooks();
   }
@@ -55,6 +56,7 @@ export class LibrarianOperationComponent implements OnInit {
           updateForm.reset();
           alert("updated successfully");
           this.callGetBookData();
+          this.router.navigateByUrl("librarian-operation");
         } else {
           alert('updation failed');
         }

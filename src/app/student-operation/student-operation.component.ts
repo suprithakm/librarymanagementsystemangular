@@ -33,11 +33,11 @@ export class StudentOperationComponent implements OnInit {
   requestForBook(books){
     this.service.getrequest(localStorage.getItem('token'),books).subscribe(data=>{
       if(data!=null){
-        this.request=true;
       console.log(data);
       localStorage.setItem('registerId',data.registrationId)
       this.id=data.bookId;
       alert('request sent')
+      this.callGetBookData();
       }else{
         alert('this book is not available')
       }
@@ -45,10 +45,14 @@ export class StudentOperationComponent implements OnInit {
     })
   }
   
-  cancel(){
-   this.service.cancelRequest( localStorage.getItem('registerId'),localStorage.getItem('token')).subscribe(resData=>{
-     console.log(resData)
-     this.id=null;
+  cancel(books){
+   this.service.cancelRequest( books).subscribe(resData=>{
+     if(resData){
+    alert('book request cancelled')
+    this.callGetBookData();
+   }else{
+     alert('no request to cancel')
+   }
    })
 
   }

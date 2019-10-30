@@ -18,7 +18,7 @@ export class StudentHomeComponent implements OnInit {
     returnDate: null
 }
   
-issued:BookTransaction
+issued:[]
   constructor(private service:CommonService,private router:Router) { 
     this.getIssuedBooks();
   }
@@ -33,21 +33,7 @@ issued:BookTransaction
       this.issued=resData;
     })
   }
-  return(returnForm:NgForm,books){
-    console.log(returnForm.value )
-    console.log(books.registrationId)
-    this.service.returnBooks(returnForm.value.returnDate,books.registrationId).subscribe(resData=>{
-    
-      console.log(resData);
-      this.getIssuedBooks();
-      if(resData.fine>0){
-      alert('book returned have to pay fine '+`${resData.fine}`)
-      this.router.navigateByUrl('/student-home')
-      }else{
-        alert('book returned')
-      }
-    })
-  }
+ 
 
   ngOnInit() {
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addbook',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AddbookComponent implements OnInit {
 
-  constructor(private service:CommonService) { }
+  constructor(private service:CommonService, private router:Router) { }
   
   add(addForm:NgForm){
     this.service.addBook(addForm.value).subscribe(resData=>{
@@ -24,6 +25,9 @@ export class AddbookComponent implements OnInit {
     })
   }
 
+  librarianhome(){
+    this.router.navigateByUrl("librarian-home");
+  }
   ngOnInit() {
   }
 

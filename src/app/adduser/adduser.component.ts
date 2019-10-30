@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adduser',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AdduserComponent implements OnInit {
 
-  constructor(private service:CommonService) { }
+  constructor(private service:CommonService,private router:Router) { }
   
   add(addForm:NgForm){
    console.log(localStorage.getItem('token'));
@@ -23,6 +24,9 @@ export class AdduserComponent implements OnInit {
     })
   }
 
+  adminhome(){
+    this.router.navigateByUrl("/admin-home");
+  }
   ngOnInit() {
   }
 

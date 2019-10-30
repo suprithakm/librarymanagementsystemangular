@@ -3,4 +3,5 @@ export class BookRegistration {
     userId: string;
     registrationId: string;
     registartiondate: Date;
+    status:String
 }
