@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { LibrarianComponent } from './librarian/librarian.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -26,8 +27,8 @@ const routes: Routes = [
 {path:'student-home',component:StudentHomeComponent},
 {path:'adduser',component:AdduserComponent},
 {path:'addbook',component:AddbookComponent},
-{path:'librarian',component:LibrarianComponent}
-
+{path:'librarian',component:LibrarianComponent},
+{path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({

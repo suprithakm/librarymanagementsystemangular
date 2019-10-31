@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./librarian.component.css']
 })
 export class LibrarianComponent implements OnInit {
-  
+
   allissued = [];
   allreq = [];
 
-  constructor(private service: CommonService,private router:Router) {
+  constructor(private service: CommonService, private router: Router) {
     this.getIssuedBooks();
     this.callGetBookRegData();
   }
@@ -22,7 +22,7 @@ export class LibrarianComponent implements OnInit {
     this.service.getAllReqBook().subscribe(resData => {
       console.log(resData);
       this.allreq = resData;
-    
+
     });
   }
 
@@ -32,28 +32,26 @@ export class LibrarianComponent implements OnInit {
       this.allissued = resData;
     })
   }
-call(books){
-  localStorage.setItem("rid",books.registrationId);
-}
-  return(returnForm:NgForm,books){
-    console.log(returnForm.value )
-   
-    this.service.returnBooks(returnForm.value.returnDate,localStorage.getItem("rid")).subscribe(resData=>{
-    
-      console.log(resData);
-      if(resData!=null){
-      if(resData.fine > 0){
-      alert('book returned have to pay fine '+`${resData.fine}`)
-      this.getIssuedBooks();
-      }else{
-        alert('book returned')
-        this.getIssuedBooks();
-      }
+  call(books) {
+    localStorage.setItem("rid", books.registrationId);
+  }
 
-      }else{
+  return(returnForm: NgForm) {
+    console.log(returnForm.value)
+    this.service.returnBooks(returnForm.value.returnDate, localStorage.getItem("rid")).subscribe(resData => {
+      console.log(resData);
+      this.getIssuedBooks();
+      if (resData != null) {
+        if (resData.fine > 0) {
+          alert('book returned have to pay fine ' + `${resData.fine}`)
+          returnForm.reset();
+          this.router.navigateByUrl("librarian");
+        } else {
+          alert('book returned')
+        }
+      } else {
         alert('no book to return')
       }
-    
     })
   }
 

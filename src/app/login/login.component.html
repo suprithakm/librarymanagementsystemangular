@@ -5,21 +5,24 @@
     </div>
     <form #loginForm='ngForm' (ngSubmit)='login(loginForm)' *ngIf="!isLoading"  >
         <div class="form-group">
-            <label for="userId">Enter User Id</label>
+            <label for="userId">Enter User Id <span class="text-danger">*</span></label>
             <input type="text" name="userId" #userId='ngModel' ngModel class="form-control mb-3" required>
             <div *ngIf="userId.touched &&  userId.invalid">
                 <p class="text-danger" *ngIf="userId.errors.required">userId is required</p>
             </div>
         </div>
         <div class="form-group">
-            <label for="password">Enter password</label>
+            <label for="password">Enter password <span class="text-danger">*</span></label>
             <input type="password" name="password" #password='ngModel' ngModel
-                class="form-control mb-3" required>
+                class="form-control mb-3" required minlength="5">
             <div *ngIf="password.touched &&  password.invalid">
                 <p class="text-danger" *ngIf="password.errors.required">password is required</p>
+                <p class="text-danger" *ngIf="password.errors.minlength">password should have atleast 5 characters</p>
             </div>
         </div>
         <input type="submit" value="login" class="btn btn-secondary btn-rounded float-right" [disabled]='loginForm.invalid'>
+        <br>
+        <h6><span class="text-danger">*</span> indicates mandatory</h6>
     </form>
 </div>
 

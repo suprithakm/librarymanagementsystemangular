@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
      this.service.isadminLogin=false;
      this.service.islibrarianLogin=false;
      this.service.isstudentLogin=false;
+     alert('Are you sure to logout');
     this.router.navigateByUrl('')
   }
 

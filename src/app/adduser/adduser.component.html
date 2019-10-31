@@ -22,8 +22,11 @@
 
         <div class="form-group">
             <label for="userName">Enter UserName</label>
-            <input type="text" name="userName" #userName='ngModel' ngModel class="form-control mb-3"
+            <input type="text" name="userName" #userName='ngModel' ngModel class="form-control mb-3" pattern="[A-Za-z]*" title="name should  be string"
                 placeholder="Enter the user Name..." required>
+                <div class="text-danger" *ngIf="userName.errors?.pattern">
+                    user name should be  string
+                </div>
             <div *ngIf="userName.touched && userName.invalid">
                 <p class="text-danger" *ngIf="userName.errors.required">
                     UserName is required</p>
@@ -35,22 +38,27 @@
         <div class="form-group">
             <label for="emailId">Enter EmailId</label>
             <input type="email" name="emailId" #emailId='ngModel' ngModel class="form-control mb-3"
-                placeholder="Enter the emailId..." required>
+                placeholder="Enter the emailId..." required email>
             <div *ngIf="emailId.touched && emailId.invalid">
                 <p class="text-danger" *ngIf="emailId.errors.required">
                     emailId is required</p>
+                    <p class="text-danger" *ngIf="emailId.errors.email">
+                            emailId is invalid</p>
             </div>
         </div>
 
 
         <div class="form-group">
             <label for="password">Enter Password</label>
-            <input type="password" name="password" #password='ngModel' ngModel class="form-control mb-3"
+            <input type="password" name="password" #password='ngModel' ngModel   minlength="5" class="form-control mb-3" 
                 placeholder="Enter the password..." required>
             <div *ngIf="password.touched && password.invalid">
                 <p class="text-danger" *ngIf="password.errors.required">
                     password is required</p>
+                    <p class="text-danger" *ngIf="password.errors.minlength">
+                            password should have min 5 character</p>
             </div>
+            
         </div>
 
 

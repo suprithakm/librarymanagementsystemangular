@@ -10,22 +10,27 @@ import { Router } from '@angular/router';
 })
 export class AddbookComponent implements OnInit {
 
-  constructor(private service:CommonService, private router:Router) { }
-  
-  add(addForm:NgForm){
-    this.service.addBook(addForm.value).subscribe(resData=>{
-      if(resData){
-        addForm.reset();
-        console.log(resData)
-        alert('book added successfully');
-      }else{
-        console.log(resData)
-        alert('book already exist');
-      }
-    })
+  constructor(private service: CommonService, private router: Router) { }
+
+  add(addForm: NgForm) {
+    if (addForm.value.yearOfPublication > 2019) {
+      alert('enter valid yop')
+      this.router.navigateByUrl('addbook')
+    } else {
+      this.service.addBook(addForm.value).subscribe(resData => {
+        if (resData) {
+          addForm.reset();
+          console.log(resData)
+          alert('book added successfully');
+        } else {
+          console.log(resData)
+          alert('book already exist');
+        }
+      })
+    }
   }
 
-  librarianhome(){
+  librarianhome() {
     this.router.navigateByUrl("librarian-home");
   }
   ngOnInit() {

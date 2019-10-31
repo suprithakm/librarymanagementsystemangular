@@ -1,20 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-dark">
     <h1 class="navbar-brand text-light" href="#">LibraryManagementSystem</h1>
 
-    <div class="fa fa-align-center" aria-hidden="true">
-
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0"
-            *ngIf='!homeclicked && !islibrarianlogin && !isadminlogin && !isstudentlogin'>
-
-            <li class="nav-item active">
-
-                <!-- <a class="nav-link text-light" href="home">Home</a> -->
-
-            </li>
-
-        </ul>
-        
-    </div>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
         <a class="nav-link text-light " *ngIf='isAdminLogin()' routerLink="admin-home"> HOME |<span

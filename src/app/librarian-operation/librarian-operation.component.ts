@@ -55,7 +55,6 @@ export class LibrarianOperationComponent implements OnInit {
           console.log(resData);
           updateForm.reset();
           alert("updated successfully");
-          this.callGetBookData();
           this.router.navigateByUrl("librarian-operation");
         } else {
           alert('updation failed');
